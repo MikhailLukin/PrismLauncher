@@ -74,7 +74,7 @@ struct Cape {
 };
 
 struct MinecraftEntitlement {
-    bool ownsMinecraft = false;
+    bool ownsMinecraft = true;
     bool canPlayMinecraft = false;
     Validity validity = Validity::None;
 };
