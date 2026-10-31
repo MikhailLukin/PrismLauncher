@@ -295,3 +295,12 @@ QUuid MinecraftAccount::uuidFromUsername(QString username)
 
     return QUuid::fromRfc4122(digest);
 }
+
+// ==========================================
+// ВЗЛОМАННАЯ ФУНКЦИЯ (CRACKED)
+// Всегда возвращает true, давая права на игру
+// ==========================================
+bool MinecraftAccount::ownsMinecraft() const
+{
+    return true;
+}
