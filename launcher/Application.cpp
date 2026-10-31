@@ -1024,6 +1024,16 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         qInfo() << "Loading accounts...";
         m_accounts->setListFilePath("accounts.json", true);
         m_accounts->loadList();
+
+        // АВТО-СОЗДАНИЕ ОФЛАЙН-ПРОФИЛЯ ПРИ ПЕРВОМ ЗАПУСКЕ
+        if (m_accounts->count() == 0) {
+            qInfo() << "No accounts found. Auto-creating offline account 'Player'...";
+            auto acc = MinecraftAccount::createOffline("Player");
+            m_accounts->addAccount(acc);
+            m_accounts->setDefaultAccount(0);
+            m_accounts->saveList();
+        }
+
         m_accounts->fillQueue();
         qInfo() << "<> Accounts loaded.";
     }
